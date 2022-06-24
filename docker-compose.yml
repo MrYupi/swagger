@@ -4,22 +4,15 @@ services:
 
   swagger-editor:
     build: ./swagger-editor
-    platform: linux/amd64
+    volumes:
+      - ./yaml:/swagger-yaml
     ports:
-      - 80:8080
+      - 81:8080
 
   swagger-ui:
     build: ./swagger-ui
-#  db:
-#    build: ./db
-#    #для версии 8.0 и выше добавляем директиву:
-#    #command: --default-authentication-plugin=mysql_native_password
-#    restart: always
-#    #    platform: linux/amd64
-#    environment:
-#      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#    volumes:
-#      - ${DB_PATH_HOST}:${DB_PATH_CONTAINER}
-#    ports:
-#      - 3306:3306
+    volumes:
+      - ./yaml:/swagger-yaml
+    ports:
+      - 80:8080
 

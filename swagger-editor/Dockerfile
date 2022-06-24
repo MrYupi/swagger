@@ -1,2 +1,3 @@
 FROM swaggerapi/swagger-editor
-ENV BASE_URL "/swagger-editor"
+RUN mkdir -p /swagger-yaml
+ENV SWAGGER_FILE "/swagger-yaml/swagger.yaml"
